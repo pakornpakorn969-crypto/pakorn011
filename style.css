@@ -1,0 +1,21 @@
+@app.get("/", response_class=HTMLResponse)
+async def get_dashboard():
+    return """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PROJECT OMEGA | Global Command</title>
+        <!-- โค้ด CSS ทั้งหมดจะอยู่ตรงนี้ครับ 👇 -->
+        <style>
+            :root { --bg: #050b14; --cyber-red: #ff003c; --cyber-blue: #00e5ff; --cyber-orange: #ff6600; }
+            
+            /* ... โค้ด CSS ต่างๆ ... */
+            
+            #emp-flash {
+                position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+                /* ... */
+            }
+        </style>
+    </head>
+    <!-- ... HTML และ JavaScript ... -->
