@@ -94,10 +94,10 @@ manager = ConnectionManager()
 async def auto_simulation_loop():
     await asyncio.sleep(2)
     threat_types = [
-        ("🚨 ตรวจพบขีปนาวุธข้ามทวีป ICBM", "ICBM_LAUNCH", "#ff0055"),
-        ("⚠️ ฝูงโดรน Hypersonic รุกล้ำเขตน่านฟ้า", "DRONE_SWARM", "#ffaa00"),
-        ("⚡ การโจมตี Quantum Cybernetics ต่อดาวเทียม", "SATELLITE_HACK", "#00f3ff"),
-        ("🛸 วัตถุบินไม่ปรากฏนามเคลื่อนที่ความเร็ว 15 Mach", "UFO_TACTICAL", "#a855f7")
+        ("🚨 ตรวจพบขีปนาวุธข้ามทวีป ICBM", "ICBM_LAUNCH", "#f43f5e"),
+        ("⚠️ ฝูงโดรน Hypersonic รุกล้ำเขตน่านฟ้า", "DRONE_SWARM", "#f59e0b"),
+        ("⚡ การโจมตี Quantum Cybernetics ต่อดาวเทียม", "SATELLITE_HACK", "#38bdf8"),
+        ("🛸 วัตถุบินไม่ปรากฏนามเคลื่อนที่ความเร็ว 15 Mach", "UFO_TACTICAL", "#8b5cf6")
     ]
     while True:
         try:
@@ -160,52 +160,59 @@ LOGIN_HTML = """
     <title>LOGIN | PROJECT OMEGA TITAN</title>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-dark: #030611; --cyber-cyan: #00f3ff; --cyber-pink: #ff0055; --cyber-green: #00ff9d; }
+        :root { 
+            --bg-dark: #070a12; 
+            --cyber-blue: #38bdf8; 
+            --cyber-pink: #f43f5e; 
+            --cyber-green: #10b981; 
+            --cyber-purple: #8b5cf6; 
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--bg-dark); color: #fff;
             font-family: 'Chakra Petch', sans-serif;
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
             background-image: 
-                radial-gradient(circle at 50% 50%, rgba(0, 243, 255, 0.08) 0%, transparent 70%),
-                linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(3, 6, 17, 0.95));
+                radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
         }
         .login-card {
-            background: rgba(10, 16, 32, 0.92); border: 1px solid var(--cyber-cyan);
-            border-radius: 16px; padding: 40px; width: 420px; box-shadow: 0 0 40px rgba(0, 243, 255, 0.25);
-            text-align: center; backdrop-filter: blur(12px); position: relative; overflow: hidden;
+            background: rgba(13, 19, 33, 0.92); border: 1px solid rgba(56, 189, 248, 0.4);
+            border-radius: 18px; padding: 42px; width: 420px; box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+            text-align: center; backdrop-filter: blur(16px); position: relative; overflow: hidden;
         }
         .login-card::before {
             content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
-            animation: scan 3s infinite;
+            background: linear-gradient(90deg, transparent, var(--cyber-blue), var(--cyber-purple), transparent);
+            animation: scan 3.5s infinite;
         }
         @keyframes scan { 0% { left: -100%; } 100% { left: 100%; } }
         .system-badge {
-            font-family: 'Orbitron'; font-size: 10px; color: var(--cyber-cyan); letter-spacing: 3px;
-            border: 1px solid rgba(0, 243, 255, 0.4); padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 12px;
+            font-family: 'Orbitron'; font-size: 10px; color: var(--cyber-blue); letter-spacing: 3px;
+            border: 1px solid rgba(56, 189, 248, 0.4); padding: 5px 14px; border-radius: 20px; display: inline-block; margin-bottom: 14px;
+            background: rgba(56, 189, 248, 0.06);
         }
         h2 { font-family: 'Orbitron'; color: #fff; margin-bottom: 6px; letter-spacing: 2px; font-size: 1.8rem; }
         p { font-size: 13px; color: #94a3b8; margin-bottom: 25px; }
         .form-group { text-align: left; margin-bottom: 20px; }
-        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-cyan); display: block; margin-bottom: 6px; letter-spacing: 1px; }
+        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-blue); display: block; margin-bottom: 6px; letter-spacing: 1px; }
         input {
-            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
+            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
         }
-        input:focus { border-color: var(--cyber-cyan); box-shadow: 0 0 12px rgba(0, 243, 255, 0.4); background: rgba(0, 243, 255, 0.05); }
+        input:focus { border-color: var(--cyber-blue); box-shadow: 0 0 14px rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.05); }
         .btn-submit {
-            width: 100%; padding: 13px; background: var(--cyber-cyan); color: #000;
+            width: 100%; padding: 13px; background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple)); color: #fff;
             border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; font-size: 14px;
         }
-        .btn-submit:hover { background: #fff; box-shadow: 0 0 20px var(--cyber-cyan); transform: translateY(-1px); }
-        .links-group { display: flex; justify-content: space-between; margin-top: 20px; font-size: 13px; }
-        .links-group a { color: var(--cyber-cyan); text-decoration: none; transition: 0.3s; }
-        .links-group a:hover { color: #fff; text-shadow: 0 0 8px var(--cyber-cyan); }
-        .msg-box { font-size: 13px; padding: 10px; border-radius: 6px; margin-bottom: 18px; text-align: left; }
-        .error-msg { background: rgba(255, 0, 85, 0.15); border: 1px solid var(--cyber-pink); color: #ff6b8b; }
-        .success-msg { background: rgba(0, 255, 157, 0.15); border: 1px solid var(--cyber-green); color: var(--cyber-green); }
-        .creator-tag { margin-top: 25px; font-size: 11px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 12px; }
+        .btn-submit:hover { box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); transform: translateY(-1px); }
+        .links-group { display: flex; justify-content: center; margin-top: 22px; font-size: 13px; }
+        .links-group a { color: var(--cyber-blue); text-decoration: none; transition: 0.3s; font-weight: 600; }
+        .links-group a:hover { color: #fff; text-shadow: 0 0 8px var(--cyber-blue); }
+        .msg-box { font-size: 13px; padding: 11px; border-radius: 8px; margin-bottom: 18px; text-align: left; }
+        .error-msg { background: rgba(244, 63, 94, 0.15); border: 1px solid var(--cyber-pink); color: #fca5a5; }
+        .success-msg { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--cyber-green); color: #6ee7b7; }
+        .creator-tag { margin-top: 25px; font-size: 11px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; }
     </style>
 </head>
 <body>
@@ -243,36 +250,41 @@ FORGOT_PASSWORD_HTML = """
     <title>FORGOT PASSWORD | PROJECT OMEGA TITAN</title>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-dark: #030611; --cyber-cyan: #00f3ff; --cyber-pink: #ff0055; --cyber-gold: #ffc800; }
+        :root { 
+            --bg-dark: #070a12; 
+            --cyber-blue: #38bdf8; 
+            --cyber-amber: #f59e0b; 
+            --cyber-pink: #f43f5e; 
+        }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             background-color: var(--bg-dark); color: #fff;
             font-family: 'Chakra Petch', sans-serif;
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            background-image: radial-gradient(circle at 50% 50%, rgba(255, 200, 0, 0.08) 0%, transparent 70%);
+            background-image: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
         }
         .reset-card {
-            background: rgba(10, 16, 32, 0.92); border: 1px solid var(--cyber-gold);
-            border-radius: 16px; padding: 40px; width: 420px; box-shadow: 0 0 40px rgba(255, 200, 0, 0.2);
-            text-align: center; backdrop-filter: blur(12px);
+            background: rgba(13, 19, 33, 0.92); border: 1px solid var(--cyber-amber);
+            border-radius: 18px; padding: 40px; width: 420px; box-shadow: 0 0 45px rgba(245, 158, 11, 0.2);
+            text-align: center; backdrop-filter: blur(16px);
         }
-        h2 { font-family: 'Orbitron'; color: var(--cyber-gold); margin-bottom: 6px; font-size: 1.6rem; }
+        h2 { font-family: 'Orbitron'; color: var(--cyber-amber); margin-bottom: 6px; font-size: 1.6rem; }
         p { font-size: 13px; color: #94a3b8; margin-bottom: 25px; }
         .form-group { text-align: left; margin-bottom: 18px; }
-        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-gold); display: block; margin-bottom: 6px; }
+        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-amber); display: block; margin-bottom: 6px; }
         input {
-            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 200, 0, 0.3); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
+            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
         }
-        input:focus { border-color: var(--cyber-gold); box-shadow: 0 0 12px rgba(255, 200, 0, 0.4); }
+        input:focus { border-color: var(--cyber-amber); box-shadow: 0 0 14px rgba(245, 158, 11, 0.4); }
         .btn-submit {
-            width: 100%; padding: 13px; background: var(--cyber-gold); color: #000;
+            width: 100%; padding: 13px; background: var(--cyber-amber); color: #000;
             border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; font-size: 14px;
         }
-        .btn-submit:hover { background: #fff; box-shadow: 0 0 20px var(--cyber-gold); }
-        .back-link { display: inline-block; margin-top: 20px; color: #94a3b8; text-decoration: none; font-size: 13px; }
-        .back-link:hover { color: #fff; }
-        .error-msg { background: rgba(255, 0, 85, 0.15); border: 1px solid var(--cyber-pink); color: #ff6b8b; padding: 10px; border-radius: 6px; font-size: 13px; margin-bottom: 18px; text-align: left; }
+        .btn-submit:hover { background: #fff; box-shadow: 0 0 25px var(--cyber-amber); }
+        .back-link { display: inline-block; margin-top: 22px; color: #94a3b8; text-decoration: none; font-size: 13px; transition: 0.3s; }
+        .back-link:hover { color: #fff; text-shadow: 0 0 8px #fff; }
+        .error-msg { background: rgba(244, 63, 94, 0.15); border: 1px solid var(--cyber-pink); color: #fca5a5; padding: 11px; border-radius: 8px; font-size: 13px; margin-bottom: 18px; text-align: left; }
     </style>
 </head>
 <body>
@@ -375,7 +387,7 @@ async def api_launch_abm(req: ABMLaunchRequest):
     payload = {
         "title": "🛡️ QUANTUM ABM INTERCEPTOR DEPLOYED",
         "summary": f"ปล่อยขีปนาวุธสกัดกั้นจากฐานปกรณ์ พิกัดเป้าหมาย {req.target_lat:.4f}, {req.target_lng:.4f}",
-        "color": "#00ff9d",
+        "color": "#10b981",
         "timestamp": datetime.now().strftime("%H:%M:%S")
     }
     await manager.broadcast(json.dumps(payload))
@@ -388,7 +400,7 @@ async def api_trigger_manual(region: str = Query("TH")):
     payload = {
         "title": "🚨 ALERT: EMERGENCY THREAT SIMULATION",
         "summary": f"เปิดระบบจำลองสภาวะสงครามฉุกเฉิน พิกัด {lat:.4f}, {lng:.4f}",
-        "color": "#ff0055",
+        "color": "#f43f5e",
         "latitude": lat,
         "longitude": lng,
         "id": random.randint(1000, 9999),
@@ -443,49 +455,53 @@ ADMIN_HTML_CONTENT = """
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-dark: #060913; --card-bg: rgba(13, 20, 38, 0.85);
-            --cyber-cyan: #00f3ff; --cyber-pink: #ff0055;
-            --cyber-green: #00ff9d; --cyber-purple: #a855f7; --cyber-gold: #ffc800;
+            --bg-dark: #070a12; 
+            --card-bg: rgba(13, 19, 33, 0.88);
+            --cyber-blue: #38bdf8; 
+            --cyber-pink: #f43f5e;
+            --cyber-green: #10b981; 
+            --cyber-purple: #8b5cf6; 
+            --cyber-amber: #f59e0b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-dark); color: #f1f5f9;
+            background-color: var(--bg-dark); color: #f8fafc;
             font-family: 'Chakra Petch', 'JetBrains Mono', sans-serif;
             min-height: 100vh; padding: 24px;
         }
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding-bottom: 20px; border-bottom: 1px solid rgba(0, 243, 255, 0.25); margin-bottom: 25px;
+            padding-bottom: 20px; border-bottom: 1px solid rgba(56, 189, 248, 0.25); margin-bottom: 25px;
         }
-        .title-group h1 { font-family: 'Orbitron'; color: var(--cyber-cyan); font-size: 1.8rem; letter-spacing: 2px; }
+        .title-group h1 { font-family: 'Orbitron'; color: var(--cyber-blue); font-size: 1.8rem; letter-spacing: 2px; }
         .title-group p { font-size: 0.95rem; color: #94a3b8; margin-top: 4px; }
         .btn-group { display: flex; gap: 10px; }
         .nav-btn {
-            background: rgba(0, 243, 255, 0.08); border: 1px solid var(--cyber-cyan); color: var(--cyber-cyan);
+            background: rgba(56, 189, 248, 0.08); border: 1px solid var(--cyber-blue); color: var(--cyber-blue);
             padding: 10px 18px; border-radius: 6px; font-family: 'Orbitron'; font-size: 12px; font-weight: 700;
             cursor: pointer; text-decoration: none; transition: all 0.25s ease;
         }
-        .nav-btn:hover { background: var(--cyber-cyan); color: #000; box-shadow: 0 0 20px var(--cyber-cyan); }
+        .nav-btn:hover { background: var(--cyber-blue); color: #000; box-shadow: 0 0 20px var(--cyber-blue); }
         .logout-btn { border-color: var(--cyber-pink); color: var(--cyber-pink); }
-        .logout-btn:hover { background: var(--cyber-pink); color: #000; box-shadow: 0 0 20px var(--cyber-pink); }
+        .logout-btn:hover { background: var(--cyber-pink); color: #fff; box-shadow: 0 0 20px var(--cyber-pink); }
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 25px; }
         .metric-card {
-            background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.12);
-            border-left: 4px solid var(--cyber-cyan); border-radius: 10px; padding: 20px;
+            background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--cyber-blue); border-radius: 12px; padding: 20px;
         }
         .metric-title { font-size: 12px; color: #94a3b8; font-family: 'Orbitron'; letter-spacing: 1px; }
         .metric-value { font-size: 2.2rem; font-weight: 700; color: #fff; margin-top: 6px; font-family: 'Orbitron'; }
         .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; margin-bottom: 25px; }
         .chart-card {
-            background: var(--card-bg); border: 1px solid rgba(0, 243, 255, 0.2);
+            background: var(--card-bg); border: 1px solid rgba(56, 189, 248, 0.2);
             border-radius: 12px; padding: 22px; height: 360px; display: flex; flex-direction: column;
         }
-        .chart-card h3 { font-family: 'Orbitron'; font-size: 15px; color: var(--cyber-cyan); margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
+        .chart-card h3 { font-family: 'Orbitron'; font-size: 15px; color: var(--cyber-blue); margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
         .chart-container { flex: 1; position: relative; }
-        .table-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; padding: 22px; }
-        .table-card h3 { font-family: 'Orbitron'; color: var(--cyber-gold); font-size: 15px; margin-bottom: 16px; }
+        .table-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 22px; }
+        .table-card h3 { font-family: 'Orbitron'; color: var(--cyber-amber); font-size: 15px; margin-bottom: 16px; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
-        th { background: rgba(0, 243, 255, 0.12); color: var(--cyber-cyan); padding: 12px; font-family: 'Orbitron'; font-size: 12px; }
+        th { background: rgba(56, 189, 248, 0.1); color: var(--cyber-blue); padding: 12px; font-family: 'Orbitron'; font-size: 12px; }
         td { padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-family: 'JetBrains Mono', sans-serif; }
     </style>
 </head>
@@ -501,7 +517,7 @@ ADMIN_HTML_CONTENT = """
         </div>
     </header>
     <div class="metrics-grid">
-        <div class="metric-card" style="border-left-color: var(--cyber-cyan);">
+        <div class="metric-card" style="border-left-color: var(--cyber-blue);">
             <div class="metric-title">TOTAL INCIDENTS RECORDED</div>
             <div class="metric-value" id="val-total">0</div>
         </div>
@@ -543,12 +559,12 @@ ADMIN_HTML_CONTENT = """
         function initAdminCharts() {
             doughnutChart = new Chart(document.getElementById('typeDoughnutChart'), {
                 type: 'doughnut',
-                data: { labels: ['ICBM Launch', 'Drone Swarm', 'Satellite Hack', 'UFO Tactical'], datasets: [{ data: [0,0,0,0], backgroundColor: ['#ff0055', '#ffc800', '#00f3ff', '#a855f7'], borderColor: '#060913', borderWidth: 2 }] },
+                data: { labels: ['ICBM Launch', 'Drone Swarm', 'Satellite Hack', 'UFO Tactical'], datasets: [{ data: [0,0,0,0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#8b5cf6'], borderColor: '#070a12', borderWidth: 2 }] },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#e2e8f0', font: { family: 'Chakra Petch' } } } } }
             });
             barChart = new Chart(document.getElementById('severityBarChart'), {
                 type: 'bar',
-                data: { labels: ['DEFCON 1', 'DEFCON 2', 'DEFCON 3', 'DEFCON 5'], datasets: [{ label: 'จำนวน', data: [0,0,0,0], backgroundColor: ['#ff0055', '#ffc800', '#00f3ff', '#00ff9d'], borderRadius: 6 }] },
+                data: { labels: ['DEFCON 1', 'DEFCON 2', 'DEFCON 3', 'DEFCON 5'], datasets: [{ label: 'จำนวน', data: [0,0,0,0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#10b981'], borderRadius: 6 }] },
                 options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' } } }, plugins: { legend: { display: false } } }
             });
         }
@@ -566,7 +582,7 @@ ADMIN_HTML_CONTENT = """
                 const tbody = document.getElementById('logs-tbody');
                 tbody.innerHTML = '';
                 data.timeline.forEach(item => {
-                    tbody.innerHTML += `<tr><td>#${item.id}</td><td>${item.time}</td><td style="color:#fff;">${item.title}</td><td>${item.type}</td><td style="color:${item.severity.includes('1')?'var(--cyber-pink)':'var(--cyber-gold)'};">${item.severity}</td><td>${item.lat.toFixed(2)}, ${item.lng.toFixed(2)}</td></tr>`;
+                    tbody.innerHTML += `<tr><td>#${item.id}</td><td>${item.time}</td><td style="color:#fff;">${item.title}</td><td>${item.type}</td><td style="color:${item.severity.includes('1')?'var(--cyber-pink)':'var(--cyber-amber)'};">${item.severity}</td><td>${item.lat.toFixed(2)}, ${item.lng.toFixed(2)}</td></tr>`;
                 });
             } catch(e) {}
         }
@@ -577,7 +593,7 @@ ADMIN_HTML_CONTENT = """
 """
 
 # ==========================================
-# 7. FRONTEND MAIN WAR ROOM UI (REDESIGNED COVER)
+# 7. FRONTEND MAIN WAR ROOM UI (REDESIGNED THEME)
 # ==========================================
 HTML_CONTENT = """
 <!DOCTYPE html>
@@ -592,9 +608,14 @@ HTML_CONTENT = """
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-color: #030611; --cyber-pink: #ff0055; --cyber-cyan: #00f3ff;
-            --cyber-green: #00ff9d; --cyber-gold: #ffc800; --cyber-purple: #b026ff;
-            --panel-bg: rgba(8, 14, 28, 0.88); --panel-border: rgba(0, 243, 255, 0.35);
+            --bg-color: #070a12; 
+            --cyber-pink: #f43f5e; 
+            --cyber-blue: #38bdf8;
+            --cyber-green: #10b981; 
+            --cyber-amber: #f59e0b; 
+            --cyber-purple: #8b5cf6;
+            --panel-bg: rgba(13, 19, 33, 0.88); 
+            --panel-border: rgba(56, 189, 248, 0.3);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
         body { 
@@ -604,72 +625,73 @@ HTML_CONTENT = """
         }
         .glass-panel { background: var(--panel-bg); backdrop-filter: blur(16px); border: 1px solid var(--panel-border); }
         
-        /* NEW COVER / SPLASH SCREEN DESIGN */
+        /* COVER / SPLASH SCREEN DESIGN */
         #splash {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at center, #0d1b3e 0%, #02040a 100%);
+            background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
             z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         .splash-card {
             position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
             text-align: center; max-width: 900px; width: 90%; padding: 50px 40px; border-radius: 24px;
-            border: 1px solid rgba(0, 243, 255, 0.6); background: rgba(5, 10, 24, 0.94);
-            box-shadow: 0 0 60px rgba(0, 243, 255, 0.25), inset 0 0 20px rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.5); background: rgba(10, 15, 28, 0.94);
+            box-shadow: 0 0 60px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(139, 92, 246, 0.15);
         }
         .clearance-tag {
-            font-family: 'Orbitron'; font-size: 11px; letter-spacing: 5px; color: var(--cyber-cyan);
-            border: 1px solid var(--cyber-cyan); padding: 6px 24px; border-radius: 20px; margin-bottom: 20px;
-            background: rgba(0, 243, 255, 0.08);
+            font-family: 'Orbitron'; font-size: 11px; letter-spacing: 5px; color: var(--cyber-blue);
+            border: 1px solid var(--cyber-blue); padding: 6px 24px; border-radius: 20px; margin-bottom: 20px;
+            background: rgba(56, 189, 248, 0.08);
         }
         .main-title {
             font-family: 'Orbitron', sans-serif; font-size: 4.2rem; font-weight: 900;
-            background: linear-gradient(180deg, #ffffff 20%, var(--cyber-cyan) 60%, var(--cyber-purple) 100%);
+            background: linear-gradient(180deg, #ffffff 20%, var(--cyber-blue) 65%, var(--cyber-purple) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 10px;
-            text-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+            text-shadow: 0 0 35px rgba(56, 189, 248, 0.4);
         }
         .creator-badge {
-            background: linear-gradient(135deg, rgba(255,0,85,0.2), rgba(0,243,255,0.2));
-            border: 1px solid rgba(0, 243, 255, 0.6); border-left: 6px solid var(--cyber-pink); border-right: 6px solid var(--cyber-cyan);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(56, 189, 248, 0.2));
+            border: 1px solid rgba(56, 189, 248, 0.5); border-left: 6px solid var(--cyber-purple); border-right: 6px solid var(--cyber-blue);
             padding: 18px 50px; border-radius: 12px; margin: 25px 0; box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
         }
-        .creator-title { font-family: 'Orbitron'; font-size: 11px; color: var(--cyber-gold); letter-spacing: 4px; }
-        .creator-name { font-family: 'Chakra Petch'; font-size: 28px; font-weight: 700; color: #fff; text-shadow: 0 0 10px var(--cyber-cyan); }
+        .creator-title { font-family: 'Orbitron'; font-size: 11px; color: var(--cyber-amber); letter-spacing: 4px; }
+        .creator-name { font-family: 'Chakra Petch'; font-size: 28px; font-weight: 700; color: #fff; text-shadow: 0 0 10px var(--cyber-blue); }
         .scan-launch-btn {
-            background: rgba(255, 0, 85, 0.12); border: 2px solid var(--cyber-pink); color: var(--cyber-pink);
+            background: rgba(56, 189, 248, 0.12); border: 2px solid var(--cyber-blue); color: var(--cyber-blue);
             padding: 18px 55px; font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700;
-            cursor: pointer; transition: 0.3s ease; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
+            cursor: pointer; transition: 0.3s ease; border-radius: 10px; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
-        .scan-launch-btn:hover { background: var(--cyber-pink); color: #000; transform: scale(1.04); box-shadow: 0 0 35px var(--cyber-pink); }
+        .scan-launch-btn:hover { background: var(--cyber-blue); color: #000; transform: scale(1.04); box-shadow: 0 0 35px var(--cyber-blue); }
         
         #top-bar {
             position: absolute; top: 0; left: 0; width: 100%; height: 44px;
-            background: rgba(4, 8, 18, 0.96); border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            background: rgba(7, 10, 18, 0.96); border-bottom: 1px solid rgba(56, 189, 248, 0.3);
             z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 0 25px; font-family: 'Orbitron'; font-size: 12px;
         }
         #container { display: flex; width: 100vw; height: 100vh; position: relative; padding-top: 44px; }
-        #map { flex: 1; height: 100%; background: #030611; }
+        #map { flex: 1; height: 100%; background: #070a12; }
         #camera-controls { position: absolute; top: 60px; left: 25px; z-index: 10; display: flex; gap: 10px; }
         .cam-btn {
-            background: var(--panel-bg); border: 1px solid rgba(0,243,255,0.4); color: #e2e8f0;
+            background: var(--panel-bg); border: 1px solid rgba(56,189,248,0.4); color: #e2e8f0;
             padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 6px; font-weight: 600;
         }
-        .cam-btn.active { background: var(--cyber-cyan); color: #000; font-weight: 700; }
+        .cam-btn.active { background: var(--cyber-blue); color: #000; font-weight: 700; }
         #sidebar {
             width: 420px; height: calc(100% - 44px); background: var(--panel-bg);
-            display: flex; flex-direction: column; z-index: 10; border-left: 1px solid rgba(0,243,255,0.35);
+            display: flex; flex-direction: column; z-index: 10; border-left: 1px solid rgba(56,189,248,0.35);
         }
-        .sidebar-title { padding: 14px 18px; color: var(--cyber-cyan); font-family: 'Orbitron'; font-size: 12px; font-weight: 700; border-bottom: 1px solid rgba(0,243,255,0.2); }
+        .sidebar-title { padding: 14px 18px; color: var(--cyber-blue); font-family: 'Orbitron'; font-size: 12px; font-weight: 700; border-bottom: 1px solid rgba(56,189,248,0.2); }
         #feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 16px; }
-        .card { background: rgba(255, 255, 255, 0.04); border-left: 4px solid var(--cyber-cyan); padding: 14px; font-size: 13px; border-radius: 6px; }
-        .abm-btn { background: var(--cyber-pink); color: #000; border: none; padding: 10px 14px; font-size: 11px; cursor: pointer; font-family: 'Orbitron'; font-weight: 700; margin-top: 6px; border-radius: 4px; }
-        #terminal-box { background: rgba(2, 5, 12, 0.98); border-top: 1px solid rgba(0, 243, 255, 0.35); padding: 14px; display: flex; align-items: center; }
+        .card { background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--cyber-blue); padding: 14px; font-size: 13px; border-radius: 6px; }
+        .abm-btn { background: var(--cyber-pink); color: #fff; border: none; padding: 10px 14px; font-size: 11px; cursor: pointer; font-family: 'Orbitron'; font-weight: 700; margin-top: 6px; border-radius: 4px; transition: 0.2s; }
+        .abm-btn:hover { background: #fff; color: var(--cyber-pink); }
+        #terminal-box { background: rgba(5, 8, 15, 0.98); border-top: 1px solid rgba(56, 189, 248, 0.35); padding: 14px; display: flex; align-items: center; }
         #terminal-box span { color: var(--cyber-green); margin-right: 10px; font-weight: bold; font-size: 13px; font-family: 'JetBrains Mono'; }
-        #cmd-prompt { background: transparent; border: none; color: var(--cyber-cyan); width: 100%; font-family: 'JetBrains Mono'; font-size: 14px; outline: none; }
+        #cmd-prompt { background: transparent; border: none; color: var(--cyber-blue); width: 100%; font-family: 'JetBrains Mono'; font-size: 14px; outline: none; }
     </style>
 </head>
 <body>
-    <!-- NEW COVER PAGE UI -->
+    <!-- COVER PAGE UI -->
     <div id="splash">
         <canvas id="particle-canvas"></canvas>
         <div class="splash-card glass-panel">
@@ -687,7 +709,7 @@ HTML_CONTENT = """
         <span>PROJECT OMEGA TITAN v6.0 (USER: {USERNAME})</span>
         <span style="color:var(--cyber-pink); font-weight:bold;">🚨 SYSTEM ONLINE: 3D SATELLITE RADAR ACTIVE</span>
         <div style="display:flex; gap:12px; align-items:center;">
-            <a href="/admin" style="color:var(--cyber-cyan); text-decoration:none; font-size:11px; border:1px solid var(--cyber-cyan); padding:4px 10px; border-radius:4px; font-weight:bold;">📊 ADMIN</a>
+            <a href="/admin" style="color:var(--cyber-blue); text-decoration:none; font-size:11px; border:1px solid var(--cyber-blue); padding:4px 10px; border-radius:4px; font-weight:bold;">📊 ADMIN</a>
             <a href="/logout" style="color:var(--cyber-pink); text-decoration:none; font-size:11px; border:1px solid var(--cyber-pink); padding:4px 10px; border-radius:4px; font-weight:bold;">🚪 LOGOUT</a>
             <span id="time-display">00:00:00 UTC</span>
         </div>
@@ -742,7 +764,7 @@ HTML_CONTENT = """
             map.on('load', () => {
                 map.setProjection({ type: 'globe' });
                 map.addSource('abm-source', { type: 'geojson', data: abmArcData });
-                map.addLayer({ id: 'abm-layer', type: 'line', source: 'abm-source', paint: { 'line-color': '#00f3ff', 'line-width': 4 } });
+                map.addLayer({ id: 'abm-layer', type: 'line', source: 'abm-source', paint: { 'line-color': '#38bdf8', 'line-width': 4 } });
             });
             map.on('click', (e) => { launchABM(e.lngLat.lat, e.lngLat.lng); });
         }
@@ -750,7 +772,7 @@ HTML_CONTENT = """
         function initChart() {
             mainChart = new Chart(document.getElementById('threatChart').getContext('2d'), {
                 type: 'bar',
-                data: { labels: ['ICBM', 'DRONE', 'SATELLITE', 'UFO'], datasets: [{ data: [0, 0, 0, 0], backgroundColor: ['#ff0055', '#ffc800', '#00f3ff', '#a855f7'], borderRadius: 4 }] },
+                data: { labels: ['ICBM', 'DRONE', 'SATELLITE', 'UFO'], datasets: [{ data: [0, 0, 0, 0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#8b5cf6'], borderRadius: 4 }] },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' } } } }
             });
             setInterval(async () => {
@@ -768,7 +790,7 @@ HTML_CONTENT = """
             ws = new WebSocket(`${protocol}//${location.host}/ws/telemetry`);
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
-                if(data.title) appendFeedCard(data.color || '#ff0055', data.title, data.summary, data.latitude, data.longitude, data.timestamp);
+                if(data.title) appendFeedCard(data.color || '#f43f5e', data.title, data.summary, data.latitude, data.longitude, data.timestamp);
             };
         }
 
@@ -793,7 +815,7 @@ HTML_CONTENT = """
             setTimeout(() => {
                 abmArcData.features = [];
                 if(map.getSource('abm-source')) map.getSource('abm-source').setData(abmArcData);
-                appendFeedCard('#00ff9d', 'TARGET DESTROYED', `ยิงสกัดกั้นสำเร็จที่พิกัด ${targetLat.toFixed(2)}, ${targetLng.toFixed(2)}`);
+                appendFeedCard('#10b981', 'TARGET DESTROYED', `ยิงสกัดกั้นสำเร็จที่พิกัด ${targetLat.toFixed(2)}, ${targetLng.toFixed(2)}`);
             }, 300);
             try { fetch('/api/v1/abm/launch', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target_lat: targetLat, target_lng: targetLng }) }); } catch(e) {}
         }
@@ -811,7 +833,7 @@ HTML_CONTENT = """
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = Array.from({length: 70}, () => ({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5), vy: (Math.random()-0.5) }));
         function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'rgba(0, 243, 255, 0.6)';
+            ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
             particles.forEach(p => { p.x += p.vx; p.y += p.vy; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill(); });
             requestAnimationFrame(drawParticles);
         }
