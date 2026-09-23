@@ -94,10 +94,10 @@ manager = ConnectionManager()
 async def auto_simulation_loop():
     await asyncio.sleep(2)
     threat_types = [
-        ("🚨 ตรวจพบขีปนาวุธข้ามทวีป ICBM", "ICBM_LAUNCH", "#f43f5e"),
-        ("⚠️ ฝูงโดรน Hypersonic รุกล้ำเขตน่านฟ้า", "DRONE_SWARM", "#f59e0b"),
-        ("⚡ การโจมตี Quantum Cybernetics ต่อดาวเทียม", "SATELLITE_HACK", "#38bdf8"),
-        ("🛸 วัตถุบินไม่ปรากฏนามเคลื่อนที่ความเร็ว 15 Mach", "UFO_TACTICAL", "#8b5cf6")
+        ("🚨 ตรวจพบขีปนาวุธข้ามทวีป ICBM", "ICBM_LAUNCH", "#dc2626"),
+        ("⚠️ ฝูงโดรน Hypersonic รุกล้ำเขตน่านฟ้า", "DRONE_SWARM", "#d97706"),
+        ("⚡ การโจมตี Quantum Cybernetics ต่อดาวเทียม", "SATELLITE_HACK", "#0284c7"),
+        ("🛸 วัตถุบินไม่ปรากฏนามเคลื่อนที่ความเร็ว 15 Mach", "UFO_TACTICAL", "#7c3aed")
     ]
     while True:
         try:
@@ -149,7 +149,7 @@ def get_current_user(session_token: Optional[str]):
     return None
 
 # ==========================================
-# 4. AUTHENTICATION & FORGOT PASSWORD ENDPOINTS
+# 4. AUTHENTICATION & FORGOT PASSWORD ENDPOINTS (LIGHT THEME)
 # ==========================================
 LOGIN_HTML = """
 <!DOCTYPE html>
@@ -161,58 +161,60 @@ LOGIN_HTML = """
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg-dark: #070a12; 
-            --cyber-blue: #38bdf8; 
-            --cyber-pink: #f43f5e; 
-            --cyber-green: #10b981; 
-            --cyber-purple: #8b5cf6; 
+            --bg-light: #f1f5f9; 
+            --primary-blue: #2563eb; 
+            --cyber-red: #dc2626; 
+            --cyber-green: #059669; 
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-dark); color: #fff;
+            background-color: var(--bg-light); color: var(--text-dark);
             font-family: 'Chakra Petch', sans-serif;
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+                radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 50% 80%, rgba(2, 132, 199, 0.06) 0%, transparent 70%);
         }
         .login-card {
-            background: rgba(13, 19, 33, 0.92); border: 1px solid rgba(56, 189, 248, 0.4);
-            border-radius: 18px; padding: 42px; width: 420px; box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
-            text-align: center; backdrop-filter: blur(16px); position: relative; overflow: hidden;
+            background: #ffffff; border: 1px solid #cbd5e1;
+            border-radius: 20px; padding: 42px; width: 420px; 
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+            text-align: center; position: relative; overflow: hidden;
         }
         .login-card::before {
-            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, var(--cyber-blue), var(--cyber-purple), transparent);
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary-blue), #0284c7, transparent);
             animation: scan 3.5s infinite;
         }
         @keyframes scan { 0% { left: -100%; } 100% { left: 100%; } }
         .system-badge {
-            font-family: 'Orbitron'; font-size: 10px; color: var(--cyber-blue); letter-spacing: 3px;
-            border: 1px solid rgba(56, 189, 248, 0.4); padding: 5px 14px; border-radius: 20px; display: inline-block; margin-bottom: 14px;
-            background: rgba(56, 189, 248, 0.06);
+            font-family: 'Orbitron'; font-size: 10px; color: var(--primary-blue); letter-spacing: 3px;
+            border: 1px solid rgba(37, 99, 235, 0.3); padding: 5px 14px; border-radius: 20px; display: inline-block; margin-bottom: 14px;
+            background: rgba(37, 99, 235, 0.06); font-weight: 700;
         }
-        h2 { font-family: 'Orbitron'; color: #fff; margin-bottom: 6px; letter-spacing: 2px; font-size: 1.8rem; }
-        p { font-size: 13px; color: #94a3b8; margin-bottom: 25px; }
+        h2 { font-family: 'Orbitron'; color: var(--text-dark); margin-bottom: 6px; letter-spacing: 2px; font-size: 1.8rem; }
+        p { font-size: 13px; color: var(--text-muted); margin-bottom: 25px; }
         .form-group { text-align: left; margin-bottom: 20px; }
-        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-blue); display: block; margin-bottom: 6px; letter-spacing: 1px; }
+        label { font-size: 11px; font-family: 'Orbitron'; color: var(--primary-blue); display: block; margin-bottom: 6px; letter-spacing: 1px; font-weight: 700; }
         input {
-            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
+            width: 100%; padding: 13px; background: #f8fafc;
+            border: 1px solid #cbd5e1; border-radius: 8px; color: var(--text-dark); font-size: 14px; outline: none; transition: 0.3s;
         }
-        input:focus { border-color: var(--cyber-blue); box-shadow: 0 0 14px rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.05); }
+        input:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); background: #fff; }
         .btn-submit {
-            width: 100%; padding: 13px; background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple)); color: #fff;
+            width: 100%; padding: 13px; background: var(--primary-blue); color: #fff;
             border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; font-size: 14px;
         }
-        .btn-submit:hover { box-shadow: 0 0 25px rgba(56, 189, 248, 0.6); transform: translateY(-1px); }
+        .btn-submit:hover { background: #1d4ed8; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); transform: translateY(-1px); }
         .links-group { display: flex; justify-content: center; margin-top: 22px; font-size: 13px; }
-        .links-group a { color: var(--cyber-blue); text-decoration: none; transition: 0.3s; font-weight: 600; }
-        .links-group a:hover { color: #fff; text-shadow: 0 0 8px var(--cyber-blue); }
+        .links-group a { color: var(--primary-blue); text-decoration: none; transition: 0.3s; font-weight: 600; }
+        .links-group a:hover { color: #1e40af; text-decoration: underline; }
         .msg-box { font-size: 13px; padding: 11px; border-radius: 8px; margin-bottom: 18px; text-align: left; }
-        .error-msg { background: rgba(244, 63, 94, 0.15); border: 1px solid var(--cyber-pink); color: #fca5a5; }
-        .success-msg { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--cyber-green); color: #6ee7b7; }
-        .creator-tag { margin-top: 25px; font-size: 11px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; }
+        .error-msg { background: #fef2f2; border: 1px solid #fca5a5; color: var(--cyber-red); }
+        .success-msg { background: #ecfdf5; border: 1px solid #6ee7b7; color: var(--cyber-green); }
+        .creator-tag { margin-top: 25px; font-size: 11px; color: var(--text-muted); border-top: 1px solid #e2e8f0; padding-top: 14px; }
     </style>
 </head>
 <body>
@@ -251,40 +253,42 @@ FORGOT_PASSWORD_HTML = """
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --bg-dark: #070a12; 
-            --cyber-blue: #38bdf8; 
-            --cyber-amber: #f59e0b; 
-            --cyber-pink: #f43f5e; 
+            --bg-light: #f1f5f9; 
+            --primary-amber: #d97706; 
+            --cyber-red: #dc2626; 
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-dark); color: #fff;
+            background-color: var(--bg-light); color: var(--text-dark);
             font-family: 'Chakra Petch', sans-serif;
             display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            background-image: radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            background-image: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
         }
         .reset-card {
-            background: rgba(13, 19, 33, 0.92); border: 1px solid var(--cyber-amber);
-            border-radius: 18px; padding: 40px; width: 420px; box-shadow: 0 0 45px rgba(245, 158, 11, 0.2);
-            text-align: center; backdrop-filter: blur(16px);
+            background: #ffffff; border: 1px solid var(--primary-amber);
+            border-radius: 20px; padding: 40px; width: 420px; 
+            box-shadow: 0 20px 40px rgba(217, 119, 6, 0.12);
+            text-align: center;
         }
-        h2 { font-family: 'Orbitron'; color: var(--cyber-amber); margin-bottom: 6px; font-size: 1.6rem; }
-        p { font-size: 13px; color: #94a3b8; margin-bottom: 25px; }
+        h2 { font-family: 'Orbitron'; color: var(--primary-amber); margin-bottom: 6px; font-size: 1.6rem; }
+        p { font-size: 13px; color: var(--text-muted); margin-bottom: 25px; }
         .form-group { text-align: left; margin-bottom: 18px; }
-        label { font-size: 11px; font-family: 'Orbitron'; color: var(--cyber-amber); display: block; margin-bottom: 6px; }
+        label { font-size: 11px; font-family: 'Orbitron'; color: var(--primary-amber); display: block; margin-bottom: 6px; font-weight: 700; }
         input {
-            width: 100%; padding: 13px; background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;
+            width: 100%; padding: 13px; background: #f8fafc;
+            border: 1px solid #cbd5e1; border-radius: 8px; color: var(--text-dark); font-size: 14px; outline: none; transition: 0.3s;
         }
-        input:focus { border-color: var(--cyber-amber); box-shadow: 0 0 14px rgba(245, 158, 11, 0.4); }
+        input:focus { border-color: var(--primary-amber); box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15); background: #fff; }
         .btn-submit {
-            width: 100%; padding: 13px; background: var(--cyber-amber); color: #000;
+            width: 100%; padding: 13px; background: var(--primary-amber); color: #fff;
             border: none; border-radius: 8px; font-family: 'Orbitron'; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; font-size: 14px;
         }
-        .btn-submit:hover { background: #fff; box-shadow: 0 0 25px var(--cyber-amber); }
-        .back-link { display: inline-block; margin-top: 22px; color: #94a3b8; text-decoration: none; font-size: 13px; transition: 0.3s; }
-        .back-link:hover { color: #fff; text-shadow: 0 0 8px #fff; }
-        .error-msg { background: rgba(244, 63, 94, 0.15); border: 1px solid var(--cyber-pink); color: #fca5a5; padding: 11px; border-radius: 8px; font-size: 13px; margin-bottom: 18px; text-align: left; }
+        .btn-submit:hover { background: #b45309; box-shadow: 0 10px 20px rgba(217, 119, 6, 0.3); }
+        .back-link { display: inline-block; margin-top: 22px; color: var(--text-muted); text-decoration: none; font-size: 13px; transition: 0.3s; font-weight: 600; }
+        .back-link:hover { color: var(--text-dark); text-decoration: underline; }
+        .error-msg { background: #fef2f2; border: 1px solid #fca5a5; color: var(--cyber-red); padding: 11px; border-radius: 8px; font-size: 13px; margin-bottom: 18px; text-align: left; }
     </style>
 </head>
 <body>
@@ -387,7 +391,7 @@ async def api_launch_abm(req: ABMLaunchRequest):
     payload = {
         "title": "🛡️ QUANTUM ABM INTERCEPTOR DEPLOYED",
         "summary": f"ปล่อยขีปนาวุธสกัดกั้นจากฐานปกรณ์ พิกัดเป้าหมาย {req.target_lat:.4f}, {req.target_lng:.4f}",
-        "color": "#10b981",
+        "color": "#059669",
         "timestamp": datetime.now().strftime("%H:%M:%S")
     }
     await manager.broadcast(json.dumps(payload))
@@ -400,7 +404,7 @@ async def api_trigger_manual(region: str = Query("TH")):
     payload = {
         "title": "🚨 ALERT: EMERGENCY THREAT SIMULATION",
         "summary": f"เปิดระบบจำลองสภาวะสงครามฉุกเฉิน พิกัด {lat:.4f}, {lng:.4f}",
-        "color": "#f43f5e",
+        "color": "#dc2626",
         "latitude": lat,
         "longitude": lng,
         "id": random.randint(1000, 9999),
@@ -442,7 +446,7 @@ async def get_analytics_stats():
         db.close()
 
 # ==========================================
-# 6. ADMIN BACKOFFICE DASHBOARD (/admin)
+# 6. ADMIN BACKOFFICE DASHBOARD (LIGHT THEME)
 # ==========================================
 ADMIN_HTML_CONTENT = """
 <!DOCTYPE html>
@@ -455,54 +459,58 @@ ADMIN_HTML_CONTENT = """
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-dark: #070a12; 
-            --card-bg: rgba(13, 19, 33, 0.88);
-            --cyber-blue: #38bdf8; 
-            --cyber-pink: #f43f5e;
-            --cyber-green: #10b981; 
-            --cyber-purple: #8b5cf6; 
-            --cyber-amber: #f59e0b;
+            --bg-light: #f8fafc; 
+            --card-bg: #ffffff;
+            --primary-blue: #2563eb; 
+            --cyber-red: #dc2626;
+            --cyber-green: #059669; 
+            --cyber-purple: #7c3aed; 
+            --cyber-amber: #d97706;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-dark); color: #f8fafc;
+            background-color: var(--bg-light); color: var(--text-dark);
             font-family: 'Chakra Petch', 'JetBrains Mono', sans-serif;
             min-height: 100vh; padding: 24px;
         }
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding-bottom: 20px; border-bottom: 1px solid rgba(56, 189, 248, 0.25); margin-bottom: 25px;
+            padding-bottom: 20px; border-bottom: 2px solid #e2e8f0; margin-bottom: 25px;
         }
-        .title-group h1 { font-family: 'Orbitron'; color: var(--cyber-blue); font-size: 1.8rem; letter-spacing: 2px; }
-        .title-group p { font-size: 0.95rem; color: #94a3b8; margin-top: 4px; }
+        .title-group h1 { font-family: 'Orbitron'; color: var(--primary-blue); font-size: 1.8rem; letter-spacing: 1px; }
+        .title-group p { font-size: 0.95rem; color: var(--text-muted); margin-top: 4px; }
         .btn-group { display: flex; gap: 10px; }
         .nav-btn {
-            background: rgba(56, 189, 248, 0.08); border: 1px solid var(--cyber-blue); color: var(--cyber-blue);
-            padding: 10px 18px; border-radius: 6px; font-family: 'Orbitron'; font-size: 12px; font-weight: 700;
-            cursor: pointer; text-decoration: none; transition: all 0.25s ease;
+            background: #ffffff; border: 1px solid var(--primary-blue); color: var(--primary-blue);
+            padding: 10px 18px; border-radius: 8px; font-family: 'Orbitron'; font-size: 12px; font-weight: 700;
+            cursor: pointer; text-decoration: none; transition: all 0.25s ease; shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .nav-btn:hover { background: var(--cyber-blue); color: #000; box-shadow: 0 0 20px var(--cyber-blue); }
-        .logout-btn { border-color: var(--cyber-pink); color: var(--cyber-pink); }
-        .logout-btn:hover { background: var(--cyber-pink); color: #fff; box-shadow: 0 0 20px var(--cyber-pink); }
+        .nav-btn:hover { background: var(--primary-blue); color: #fff; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        .logout-btn { border-color: var(--cyber-red); color: var(--cyber-red); }
+        .logout-btn:hover { background: var(--cyber-red); color: #fff; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3); }
         .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 25px; }
         .metric-card {
-            background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--cyber-blue); border-radius: 12px; padding: 20px;
+            background: var(--card-bg); border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--primary-blue); border-radius: 12px; padding: 20px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
         }
-        .metric-title { font-size: 12px; color: #94a3b8; font-family: 'Orbitron'; letter-spacing: 1px; }
-        .metric-value { font-size: 2.2rem; font-weight: 700; color: #fff; margin-top: 6px; font-family: 'Orbitron'; }
+        .metric-title { font-size: 11px; color: var(--text-muted); font-family: 'Orbitron'; letter-spacing: 1px; font-weight: 700; }
+        .metric-value { font-size: 2.2rem; font-weight: 800; color: var(--text-dark); margin-top: 6px; font-family: 'Orbitron'; }
         .charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; margin-bottom: 25px; }
         .chart-card {
-            background: var(--card-bg); border: 1px solid rgba(56, 189, 248, 0.2);
+            background: var(--card-bg); border: 1px solid #e2e8f0;
             border-radius: 12px; padding: 22px; height: 360px; display: flex; flex-direction: column;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
         }
-        .chart-card h3 { font-family: 'Orbitron'; font-size: 15px; color: var(--cyber-blue); margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; }
+        .chart-card h3 { font-family: 'Orbitron'; font-size: 15px; color: var(--primary-blue); margin-bottom: 16px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
         .chart-container { flex: 1; position: relative; }
-        .table-card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 22px; }
+        .table-card { background: var(--card-bg); border: 1px solid #e2e8f0; border-radius: 12px; padding: 22px; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04); }
         .table-card h3 { font-family: 'Orbitron'; color: var(--cyber-amber); font-size: 15px; margin-bottom: 16px; }
         table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
-        th { background: rgba(56, 189, 248, 0.1); color: var(--cyber-blue); padding: 12px; font-family: 'Orbitron'; font-size: 12px; }
-        td { padding: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-family: 'JetBrains Mono', sans-serif; }
+        th { background: #f1f5f9; color: var(--primary-blue); padding: 12px; font-family: 'Orbitron'; font-size: 12px; }
+        td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-family: 'JetBrains Mono', sans-serif; color: var(--text-dark); }
     </style>
 </head>
 <body>
@@ -517,13 +525,13 @@ ADMIN_HTML_CONTENT = """
         </div>
     </header>
     <div class="metrics-grid">
-        <div class="metric-card" style="border-left-color: var(--cyber-blue);">
+        <div class="metric-card" style="border-left-color: var(--primary-blue);">
             <div class="metric-title">TOTAL INCIDENTS RECORDED</div>
             <div class="metric-value" id="val-total">0</div>
         </div>
-        <div class="metric-card" style="border-left-color: var(--cyber-pink);">
+        <div class="metric-card" style="border-left-color: var(--cyber-red);">
             <div class="metric-title">CRITICAL DEFCON 1 THREATS</div>
-            <div class="metric-value" id="val-def1" style="color: var(--cyber-pink);">0</div>
+            <div class="metric-value" id="val-def1" style="color: var(--cyber-red);">0</div>
         </div>
         <div class="metric-card" style="border-left-color: var(--cyber-green);">
             <div class="metric-title">ACTIVE WS CONNECTIONS</div>
@@ -559,13 +567,13 @@ ADMIN_HTML_CONTENT = """
         function initAdminCharts() {
             doughnutChart = new Chart(document.getElementById('typeDoughnutChart'), {
                 type: 'doughnut',
-                data: { labels: ['ICBM Launch', 'Drone Swarm', 'Satellite Hack', 'UFO Tactical'], datasets: [{ data: [0,0,0,0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#8b5cf6'], borderColor: '#070a12', borderWidth: 2 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#e2e8f0', font: { family: 'Chakra Petch' } } } } }
+                data: { labels: ['ICBM Launch', 'Drone Swarm', 'Satellite Hack', 'UFO Tactical'], datasets: [{ data: [0,0,0,0], backgroundColor: ['#dc2626', '#d97706', '#0284c7', '#7c3aed'], borderColor: '#ffffff', borderWidth: 2 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#0f172a', font: { family: 'Chakra Petch' } } } } }
             });
             barChart = new Chart(document.getElementById('severityBarChart'), {
                 type: 'bar',
-                data: { labels: ['DEFCON 1', 'DEFCON 2', 'DEFCON 3', 'DEFCON 5'], datasets: [{ label: 'จำนวน', data: [0,0,0,0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#10b981'], borderRadius: 6 }] },
-                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' } } }, plugins: { legend: { display: false } } }
+                data: { labels: ['DEFCON 1', 'DEFCON 2', 'DEFCON 3', 'DEFCON 5'], datasets: [{ label: 'จำนวน', data: [0,0,0,0], backgroundColor: ['#dc2626', '#d97706', '#0284c7', '#059669'], borderRadius: 6 }] },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#e2e8f0' } }, x: { ticks: { color: '#64748b' }, grid: { display: false } } }, plugins: { legend: { display: false } } }
             });
         }
         async function fetchBackendStats() {
@@ -582,7 +590,7 @@ ADMIN_HTML_CONTENT = """
                 const tbody = document.getElementById('logs-tbody');
                 tbody.innerHTML = '';
                 data.timeline.forEach(item => {
-                    tbody.innerHTML += `<tr><td>#${item.id}</td><td>${item.time}</td><td style="color:#fff;">${item.title}</td><td>${item.type}</td><td style="color:${item.severity.includes('1')?'var(--cyber-pink)':'var(--cyber-amber)'};">${item.severity}</td><td>${item.lat.toFixed(2)}, ${item.lng.toFixed(2)}</td></tr>`;
+                    tbody.innerHTML += `<tr><td>#${item.id}</td><td>${item.time}</td><td style="color:#0f172a; font-weight:600;">${item.title}</td><td>${item.type}</td><td style="color:${item.severity.includes('1')?'var(--cyber-red)':'var(--cyber-amber)'}; font-weight:bold;">${item.severity}</td><td>${item.lat.toFixed(2)}, ${item.lng.toFixed(2)}</td></tr>`;
                 });
             } catch(e) {}
         }
@@ -593,7 +601,7 @@ ADMIN_HTML_CONTENT = """
 """
 
 # ==========================================
-# 7. FRONTEND MAIN WAR ROOM UI (REDESIGNED THEME)
+# 7. FRONTEND MAIN WAR ROOM UI (LIGHT THEME)
 # ==========================================
 HTML_CONTENT = """
 <!DOCTYPE html>
@@ -608,86 +616,90 @@ HTML_CONTENT = """
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --bg-color: #070a12; 
-            --cyber-pink: #f43f5e; 
-            --cyber-blue: #38bdf8;
-            --cyber-green: #10b981; 
-            --cyber-amber: #f59e0b; 
-            --cyber-purple: #8b5cf6;
-            --panel-bg: rgba(13, 19, 33, 0.88); 
-            --panel-border: rgba(56, 189, 248, 0.3);
+            --bg-color: #f8fafc; 
+            --cyber-red: #dc2626; 
+            --primary-blue: #2563eb;
+            --cyber-green: #059669; 
+            --cyber-amber: #d97706; 
+            --cyber-purple: #7c3aed;
+            --panel-bg: rgba(255, 255, 255, 0.94); 
+            --panel-border: rgba(203, 213, 225, 0.8);
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
         body { 
-            background-color: var(--bg-color); color: #f8fafc; 
+            background-color: var(--bg-color); color: var(--text-dark); 
             font-family: 'Chakra Petch', 'JetBrains Mono', sans-serif; 
             overflow: hidden; height: 100vh; width: 100vw; 
         }
-        .glass-panel { background: var(--panel-bg); backdrop-filter: blur(16px); border: 1px solid var(--panel-border); }
+        .glass-panel { background: var(--panel-bg); backdrop-filter: blur(16px); border: 1px solid var(--panel-border); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); }
         
-        /* COVER / SPLASH SCREEN DESIGN */
+        /* COVER / SPLASH SCREEN DESIGN (LIGHT THEME) */
         #splash {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
+            background: radial-gradient(circle at center, #ffffff 0%, #e2e8f0 100%);
             z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
         #particle-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         .splash-card {
             position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
             text-align: center; max-width: 900px; width: 90%; padding: 50px 40px; border-radius: 24px;
-            border: 1px solid rgba(56, 189, 248, 0.5); background: rgba(10, 15, 28, 0.94);
-            box-shadow: 0 0 60px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3); background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.12);
         }
         .clearance-tag {
-            font-family: 'Orbitron'; font-size: 11px; letter-spacing: 5px; color: var(--cyber-blue);
-            border: 1px solid var(--cyber-blue); padding: 6px 24px; border-radius: 20px; margin-bottom: 20px;
-            background: rgba(56, 189, 248, 0.08);
+            font-family: 'Orbitron'; font-size: 11px; letter-spacing: 5px; color: var(--primary-blue);
+            border: 1px solid var(--primary-blue); padding: 6px 24px; border-radius: 20px; margin-bottom: 20px;
+            background: rgba(37, 99, 235, 0.06); font-weight: 700;
         }
         .main-title {
             font-family: 'Orbitron', sans-serif; font-size: 4.2rem; font-weight: 900;
-            background: linear-gradient(180deg, #ffffff 20%, var(--cyber-blue) 65%, var(--cyber-purple) 100%);
+            background: linear-gradient(180deg, #1e3a8a 0%, var(--primary-blue) 60%, var(--cyber-purple) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 10px;
-            text-shadow: 0 0 35px rgba(56, 189, 248, 0.4);
         }
         .creator-badge {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(56, 189, 248, 0.2));
-            border: 1px solid rgba(56, 189, 248, 0.5); border-left: 6px solid var(--cyber-purple); border-right: 6px solid var(--cyber-blue);
-            padding: 18px 50px; border-radius: 12px; margin: 25px 0; box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(124, 58, 237, 0.06));
+            border: 1px solid rgba(37, 99, 235, 0.3); border-left: 6px solid var(--primary-blue); border-right: 6px solid var(--cyber-purple);
+            padding: 18px 50px; border-radius: 12px; margin: 25px 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
-        .creator-title { font-family: 'Orbitron'; font-size: 11px; color: var(--cyber-amber); letter-spacing: 4px; }
-        .creator-name { font-family: 'Chakra Petch'; font-size: 28px; font-weight: 700; color: #fff; text-shadow: 0 0 10px var(--cyber-blue); }
+        .creator-title { font-family: 'Orbitron'; font-size: 11px; color: var(--cyber-amber); letter-spacing: 4px; font-weight: 700; }
+        .creator-name { font-family: 'Chakra Petch'; font-size: 28px; font-weight: 700; color: var(--text-dark); }
         .scan-launch-btn {
-            background: rgba(56, 189, 248, 0.12); border: 2px solid var(--cyber-blue); color: var(--cyber-blue);
+            background: var(--primary-blue); border: none; color: #fff;
             padding: 18px 55px; font-family: 'Orbitron', sans-serif; font-size: 1.2rem; font-weight: 700;
-            cursor: pointer; transition: 0.3s ease; border-radius: 10px; box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+            cursor: pointer; transition: 0.3s ease; border-radius: 12px; box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
         }
-        .scan-launch-btn:hover { background: var(--cyber-blue); color: #000; transform: scale(1.04); box-shadow: 0 0 35px var(--cyber-blue); }
+        .scan-launch-btn:hover { background: #1d4ed8; transform: scale(1.04); box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45); }
         
         #top-bar {
             position: absolute; top: 0; left: 0; width: 100%; height: 44px;
-            background: rgba(7, 10, 18, 0.96); border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+            background: #ffffff; border-bottom: 1px solid #cbd5e1;
             z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 0 25px; font-family: 'Orbitron'; font-size: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         #container { display: flex; width: 100vw; height: 100vh; position: relative; padding-top: 44px; }
-        #map { flex: 1; height: 100%; background: #070a12; }
+        #map { flex: 1; height: 100%; background: #f1f5f9; }
         #camera-controls { position: absolute; top: 60px; left: 25px; z-index: 10; display: flex; gap: 10px; }
         .cam-btn {
-            background: var(--panel-bg); border: 1px solid rgba(56,189,248,0.4); color: #e2e8f0;
-            padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 6px; font-weight: 600;
+            background: #ffffff; border: 1px solid #cbd5e1; color: var(--text-dark);
+            padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 8px; font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.2s;
         }
-        .cam-btn.active { background: var(--cyber-blue); color: #000; font-weight: 700; }
+        .cam-btn.active { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); font-weight: 700; }
         #sidebar {
             width: 420px; height: calc(100% - 44px); background: var(--panel-bg);
-            display: flex; flex-direction: column; z-index: 10; border-left: 1px solid rgba(56,189,248,0.35);
+            display: flex; flex-direction: column; z-index: 10; border-left: 1px solid #cbd5e1;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.03);
         }
-        .sidebar-title { padding: 14px 18px; color: var(--cyber-blue); font-family: 'Orbitron'; font-size: 12px; font-weight: 700; border-bottom: 1px solid rgba(56,189,248,0.2); }
+        .sidebar-title { padding: 14px 18px; color: var(--primary-blue); font-family: 'Orbitron'; font-size: 12px; font-weight: 700; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
         #feed { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding: 16px; }
-        .card { background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--cyber-blue); padding: 14px; font-size: 13px; border-radius: 6px; }
-        .abm-btn { background: var(--cyber-pink); color: #fff; border: none; padding: 10px 14px; font-size: 11px; cursor: pointer; font-family: 'Orbitron'; font-weight: 700; margin-top: 6px; border-radius: 4px; transition: 0.2s; }
-        .abm-btn:hover { background: #fff; color: var(--cyber-pink); }
-        #terminal-box { background: rgba(5, 8, 15, 0.98); border-top: 1px solid rgba(56, 189, 248, 0.35); padding: 14px; display: flex; align-items: center; }
-        #terminal-box span { color: var(--cyber-green); margin-right: 10px; font-weight: bold; font-size: 13px; font-family: 'JetBrains Mono'; }
-        #cmd-prompt { background: transparent; border: none; color: var(--cyber-blue); width: 100%; font-family: 'JetBrains Mono'; font-size: 14px; outline: none; }
+        .card { background: #ffffff; border-left: 4px solid var(--primary-blue); padding: 14px; font-size: 13px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .abm-btn { background: var(--cyber-red); color: #fff; border: none; padding: 10px 14px; font-size: 11px; cursor: pointer; font-family: 'Orbitron'; font-weight: 700; margin-top: 8px; border-radius: 6px; transition: 0.2s; width: 100%; }
+        .abm-btn:hover { background: #b91c1c; box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3); }
+        #terminal-box { background: #0f172a; border-top: 1px solid #334155; padding: 14px; display: flex; align-items: center; }
+        #terminal-box span { color: #38bdf8; margin-right: 10px; font-weight: bold; font-size: 13px; font-family: 'JetBrains Mono'; }
+        #cmd-prompt { background: transparent; border: none; color: #fff; width: 100%; font-family: 'JetBrains Mono'; font-size: 14px; outline: none; }
     </style>
 </head>
 <body>
@@ -697,7 +709,7 @@ HTML_CONTENT = """
         <div class="splash-card glass-panel">
             <div class="clearance-tag">QUANTUM CLEARANCE: LEVEL 5 (CLASSIFIED OMNI)</div>
             <h1 class="main-title">PROJECT OMEGA</h1>
-            <p style="letter-spacing:6px; color:#cbd5e1; font-size:13px; margin-bottom:15px; font-family:'Orbitron';">SUPREME 3D GLOBAL WAR ROOM & ABM DEFENSE MATRIX</p>
+            <p style="letter-spacing:6px; color:#475569; font-size:13px; margin-bottom:15px; font-family:'Orbitron'; font-weight:700;">SUPREME 3D GLOBAL WAR ROOM & ABM DEFENSE MATRIX</p>
             <div class="creator-badge">
                 <div class="creator-title">CHIEF SYSTEM ARCHITECT</div>
                 <div class="creator-name">👨‍💻 ผู้สร้าง ปกรณ์</div>
@@ -707,23 +719,23 @@ HTML_CONTENT = """
     </div>
     <div id="top-bar">
         <span>PROJECT OMEGA TITAN v6.0 (USER: {USERNAME})</span>
-        <span style="color:var(--cyber-pink); font-weight:bold;">🚨 SYSTEM ONLINE: 3D SATELLITE RADAR ACTIVE</span>
+        <span style="color:var(--cyber-red); font-weight:bold;">🚨 SYSTEM ONLINE: 3D SATELLITE RADAR ACTIVE</span>
         <div style="display:flex; gap:12px; align-items:center;">
-            <a href="/admin" style="color:var(--cyber-blue); text-decoration:none; font-size:11px; border:1px solid var(--cyber-blue); padding:4px 10px; border-radius:4px; font-weight:bold;">📊 ADMIN</a>
-            <a href="/logout" style="color:var(--cyber-pink); text-decoration:none; font-size:11px; border:1px solid var(--cyber-pink); padding:4px 10px; border-radius:4px; font-weight:bold;">🚪 LOGOUT</a>
-            <span id="time-display">00:00:00 UTC</span>
+            <a href="/admin" style="color:var(--primary-blue); text-decoration:none; font-size:11px; border:1px solid var(--primary-blue); padding:4px 10px; border-radius:6px; font-weight:bold; background:#eff6ff;">📊 ADMIN</a>
+            <a href="/logout" style="color:var(--cyber-red); text-decoration:none; font-size:11px; border:1px solid var(--cyber-red); padding:4px 10px; border-radius:6px; font-weight:bold; background:#fef2f2;">🚪 LOGOUT</a>
+            <span id="time-display" style="color:var(--text-muted);">00:00:00 UTC</span>
         </div>
     </div>
     <div id="container">
         <div id="camera-controls">
             <button class="cam-btn active" onclick="selectRegion('TH', 100.5, 13.7, 6.5, this)">🇹🇭 THAILAND COMMAND</button>
             <button class="cam-btn" onclick="selectRegion('GLOBAL', 100.0, 15.0, 2.2, this)">🌍 3D GLOBAL GLOBE</button>
-            <button class="cam-btn" style="border-color:var(--cyber-pink); color:var(--cyber-pink);" onclick="triggerManualThreat()">⚡ SIMULATE THREAT</button>
+            <button class="cam-btn" style="border-color:var(--cyber-red); color:var(--cyber-red);" onclick="triggerManualThreat()">⚡ SIMULATE THREAT</button>
         </div>
         <div id="map"></div>
         <div id="sidebar">
             <div class="sidebar-title">LIVE DATABASE ANALYTICS</div>
-            <div style="padding:15px; height:200px; border-bottom:1px solid rgba(255,255,255,0.1);"><canvas id="threatChart"></canvas></div>
+            <div style="padding:15px; height:200px; border-bottom:1px solid #e2e8f0; background:#fff;"><canvas id="threatChart"></canvas></div>
             <div class="sidebar-title">INCIDENT FEED & INTERCEPT CONTROL</div>
             <div id="feed"></div>
             <div id="terminal-box">
@@ -758,13 +770,13 @@ HTML_CONTENT = """
         function init3DMap() {
             map = new maplibregl.Map({
                 container: 'map',
-                style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+                style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json', // LIGHT MAP STYLE
                 center: [100.5018, 13.7563], zoom: 2.5, pitch: 45, bearing: -10, projection: 'globe'
             });
             map.on('load', () => {
                 map.setProjection({ type: 'globe' });
                 map.addSource('abm-source', { type: 'geojson', data: abmArcData });
-                map.addLayer({ id: 'abm-layer', type: 'line', source: 'abm-source', paint: { 'line-color': '#38bdf8', 'line-width': 4 } });
+                map.addLayer({ id: 'abm-layer', type: 'line', source: 'abm-source', paint: { 'line-color': '#2563eb', 'line-width': 4 } });
             });
             map.on('click', (e) => { launchABM(e.lngLat.lat, e.lngLat.lng); });
         }
@@ -772,8 +784,8 @@ HTML_CONTENT = """
         function initChart() {
             mainChart = new Chart(document.getElementById('threatChart').getContext('2d'), {
                 type: 'bar',
-                data: { labels: ['ICBM', 'DRONE', 'SATELLITE', 'UFO'], datasets: [{ data: [0, 0, 0, 0], backgroundColor: ['#f43f5e', '#f59e0b', '#38bdf8', '#8b5cf6'], borderRadius: 4 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { color: '#94a3b8' } }, x: { ticks: { color: '#94a3b8' } } } }
+                data: { labels: ['ICBM', 'DRONE', 'SATELLITE', 'UFO'], datasets: [{ data: [0, 0, 0, 0], backgroundColor: ['#dc2626', '#d97706', '#0284c7', '#7c3aed'], borderRadius: 4 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, ticks: { color: '#64748b' }, grid: { color: '#f1f5f9' } }, x: { ticks: { color: '#64748b' }, grid: { display: false } } } }
             });
             setInterval(async () => {
                 try {
@@ -790,7 +802,7 @@ HTML_CONTENT = """
             ws = new WebSocket(`${protocol}//${location.host}/ws/telemetry`);
             ws.onmessage = (event) => {
                 const data = JSON.parse(event.data);
-                if(data.title) appendFeedCard(data.color || '#f43f5e', data.title, data.summary, data.latitude, data.longitude, data.timestamp);
+                if(data.title) appendFeedCard(data.color || '#dc2626', data.title, data.summary, data.latitude, data.longitude, data.timestamp);
             };
         }
 
@@ -799,7 +811,7 @@ HTML_CONTENT = """
             const card = document.createElement('div');
             card.className = 'card'; card.style.borderLeftColor = color;
             let btnHtml = (lat && lng) ? `<button class="abm-btn" onclick="launchABM(${lat}, ${lng})">🚀 LAUNCH ABM INTERCEPTOR</button>` : '';
-            card.innerHTML = `<div style="display:flex; justify-content:space-between;"><b style="color:${color}">${title}</b><span style="color:#888;">${time}</span></div><span>${desc}</span>${btnHtml}`;
+            card.innerHTML = `<div style="display:flex; justify-content:space-between;"><b style="color:${color}">${title}</b><span style="color:#64748b;">${time}</span></div><span style="color:#334155;">${desc}</span>${btnHtml}`;
             feed.prepend(card);
         }
 
@@ -815,7 +827,7 @@ HTML_CONTENT = """
             setTimeout(() => {
                 abmArcData.features = [];
                 if(map.getSource('abm-source')) map.getSource('abm-source').setData(abmArcData);
-                appendFeedCard('#10b981', 'TARGET DESTROYED', `ยิงสกัดกั้นสำเร็จที่พิกัด ${targetLat.toFixed(2)}, ${targetLng.toFixed(2)}`);
+                appendFeedCard('#059669', 'TARGET DESTROYED', `ยิงสกัดกั้นสำเร็จที่พิกัด ${targetLat.toFixed(2)}, ${targetLng.toFixed(2)}`);
             }, 300);
             try { fetch('/api/v1/abm/launch', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ target_lat: targetLat, target_lng: targetLng }) }); } catch(e) {}
         }
@@ -833,8 +845,8 @@ HTML_CONTENT = """
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         let particles = Array.from({length: 70}, () => ({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5), vy: (Math.random()-0.5) }));
         function drawParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
-            particles.forEach(p => { p.x += p.vx; p.y += p.vy; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, Math.PI * 2); ctx.fill(); });
+            ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.fillStyle = 'rgba(37, 99, 235, 0.25)';
+            particles.forEach(p => { p.x += p.vx; p.y += p.vy; ctx.beginPath(); ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2); ctx.fill(); });
             requestAnimationFrame(drawParticles);
         }
         drawParticles();
